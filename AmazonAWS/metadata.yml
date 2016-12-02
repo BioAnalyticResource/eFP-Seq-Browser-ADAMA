@@ -1,0 +1,74 @@
+---
+
+name: efp-seq_browser_aws
+description: A web service to get data from Amazon AWS for eFP-Seq Browser
+version: 0.1
+icon: BAR.png
+tags:
+    - 'eFP-Seq Browser'
+    - 'Arabidopsis'
+    - 'Expression'
+    - 'BAR'
+
+authors:
+    - name: Asher Pasha
+      email: asher.pasha@utoronto.ca
+      sponsor_organization: University of Toronto
+      sponsor_uri: http://www.utoronto.ca/
+
+type: passthrough
+url: http://ec2-52-70-232-122.compute-1.amazonaws.com/RNA-Browser/cgi-bin
+whitelist:
+    - bar.utoronto.ca
+
+endpoints:
+    /access/webservice.cgi:
+        get:
+            description: Return a JSON object of data for eFP-Seq Browser
+            parameters:
+                - name: tissue
+                  description: Tissue provided with data
+                  type: string
+                  default: carpel
+                - name: record
+                  description: Record provided with data
+                  type: string
+                  default: SRR1207194
+                - name: locus
+                  description: Gene ID 
+                  type: string
+                  default: At1g01010
+                - name: variant
+                  description: The gene variant
+                  type: integer
+                  default: 1
+                - name: start
+                  description: The start of the gene in base pairs
+                  type: integer
+                  default: 3631
+                - name: end
+                  description: The end of the gene in base pairs
+                  type: integer
+                  default: 5899
+                - name: yscale
+                  description: Y-axis scale 
+                  type: integer
+                  default: -1
+                - name: status
+                  description: New request or web service cached request
+                  type: integer
+                  default: 0
+                - name: struct
+                  description: The gene structure
+                  type: json
+                  default: '[{"exon_coordinates":[{"exon_start":3631,"exon_end":3913},{"exon_start":3760,"exon_end":3913},{"exon_start":3996,"exon_end":4276},{"exon_start":3996,"exon_end":4276},{"exon_start":4486,"exon_end":4605},{"exon_start":4486,"exon_end":4605},{"exon_start":4706,"exon_end":5095},{"exon_start":4706,"exon_end":5095},{"exon_start":5174,"exon_end":5326},{"exon_start":5174,"exon_end":5326},{"exon_start":5439,"exon_end":5630},{"exon_start":5439,"exon_end":5899}],"start":3631,"end":5899,"gene_structure":"iVBORw0KGgoAAAANSUhEUgAAAcIAAAAIBAMAAACYMuIQAAAAFVBMVEX///8AAADcFDz/jAAAAP m 3KYAfQDytQt7AAAARklEQVQ4jWMIRQJhaaiAAQrS8AAGLIANqwI27AaggwTsliYgjMeiKRQ3YBjm Pgwc/j4UHfY FGQQHO5gBMThcPfh8M HoQAmPdKqTyLkFgAAAABJRU5ErkJggg== "}]'
+ 
+sources:
+    - title: eFP-Seq Browser
+      description: eFP-Seq Browser
+      language: en-ca
+      sponsor_organization_name: University of Toronto
+      sponsor_uri: http://www.utoronto.ca/
+      provider_name: Nicholas Provart
+      provider_email: nicholas.provart@utoronto.ca
+      uri: http://bar.utoronto.ca/

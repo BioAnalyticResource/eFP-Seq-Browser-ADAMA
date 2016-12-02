@@ -1,2 +1,3 @@
 # eFP-Seq-Browser-ADAMA
-ADAMA Adapter for eFP-Seq Browser
+
+The repository has ADAMA adapters for BAR eFP-Seq Browser for Araport.
