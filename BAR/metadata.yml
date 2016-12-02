@@ -1,0 +1,43 @@
+---
+
+name: efp-seq_browser_gene_structure
+description: A web service to get gene structure data from the BAR
+version: 0.1
+icon: BAR.png
+tags:
+    - 'eFP-Seq Browser'
+    - 'Arabidopsis'
+    - 'Expression'
+    - 'BAR'
+
+authors:
+    - name: Asher Pasha
+      email: asher.pasha@utoronto.ca
+      sponsor_organization: University of Toronto
+      sponsor_uri: http://www.utoronto.ca/
+
+type: passthrough
+url: http://bar.utoronto.ca/~ppurohit/RNA-Browser/cgi-bin
+whitelist:
+    - bar.utoronto.ca
+
+endpoints:
+    /access/get_gene_structures.cgi:
+        get:
+            description: Return a JSON object of gene structure data for eFP-Seq Browser
+            parameters:
+                - name: locus
+                  description: Gene ID 
+                  type: string
+                  default: At1g01010
+                  required: true
+  
+sources:
+    - title: eFP-Seq Browser
+      description: eFP-Seq Browser
+      language: en-ca
+      sponsor_organization_name: University of Toronto
+      sponsor_uri: http://www.utoronto.ca/
+      provider_name: Nicholas Provart
+      provider_email: nicholas.provart@utoronto.ca
+      uri: http://bar.utoronto.ca/
