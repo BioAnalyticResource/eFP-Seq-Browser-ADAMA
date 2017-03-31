@@ -2,7 +2,7 @@
 
 name: efp-seq_browser_gene_structure
 description: A web service to get gene structure data from the BAR
-version: 0.1
+version: 0.2
 icon: BAR.png
 tags:
     - 'eFP-Seq Browser'
@@ -17,7 +17,7 @@ authors:
       sponsor_uri: http://www.utoronto.ca/
 
 type: passthrough
-url: http://bar.utoronto.ca/~ppurohit/RNA-Browser/cgi-bin
+url: http://bar.utoronto.ca/~dev/eFP-Seq_Browser/cgi-bin
 whitelist:
     - bar.utoronto.ca
 

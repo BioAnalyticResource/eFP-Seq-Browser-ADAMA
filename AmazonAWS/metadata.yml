@@ -1,8 +1,8 @@
 ---
 
 name: efp-seq_browser_aws
-description: A web service to get data from Amazon AWS for eFP-Seq Browser
-version: 0.1
+description: A web service to get Araport data from Amazon S3 for eFP-Seq Browser
+version: 0.2
 icon: BAR.png
 tags:
     - 'eFP-Seq Browser'
@@ -17,7 +17,7 @@ authors:
       sponsor_uri: http://www.utoronto.ca/
 
 type: passthrough
-url: http://ec2-52-70-232-122.compute-1.amazonaws.com/RNA-Browser/cgi-bin
+url: http://bar.utoronto.ca/webservices/eFP-Seq_Browser/cgi-bin
 whitelist:
     - bar.utoronto.ca
 
