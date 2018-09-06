@@ -1,8 +1,8 @@
 ---
 
-name: efp-seq_browser_gene_structure
+name: efp-seq_browser_adama
 description: A web service to get gene structure data from the BAR
-version: 0.2
+version: 0.3
 icon: BAR.png
 tags:
     - 'eFP-Seq Browser'
@@ -17,11 +17,26 @@ authors:
       sponsor_uri: http://www.utoronto.ca/
 
 type: passthrough
-url: http://bar.utoronto.ca/~dev/eFP-Seq_Browser/cgi-bin
+url: http://bar.utoronto.ca/eFP-Seq_Browser/cgi-bin
 whitelist:
     - bar.utoronto.ca
 
 endpoints:
+    /access/idautocomplete.cgi:
+        get:
+            description: ID autocomplete web service
+            parameters:
+                - name: species
+                  description: Name of species
+                  type: string
+                  default: Arabidopsis_thaliana
+                  required: true
+                - name: term
+                  description: Search term
+                  type: string
+                  default: At1g01010
+                  required: true
+
     /access/get_gene_structures.cgi:
         get:
             description: Return a JSON object of gene structure data for eFP-Seq Browser
@@ -30,6 +45,80 @@ endpoints:
                   description: Gene ID 
                   type: string
                   default: At1g01010
+                  required: true
+
+    /access/webservice.cgi:
+        post:
+            description: Returns graph
+            parameters:
+                - name: status
+                  description: Status (Cached or uncached)
+                  type: integer
+                  default: 0
+                  required: true
+                - name: numberofreads
+                  description: Number of reads mapped (This should be in XML file)
+                  type: integer
+                  default: 29098868
+                  required: true
+                - name: hexcodecolour
+                  description: Color code
+                  type: string
+                  default: 0x64cc65
+                  required: true
+                - name: remoteDrive
+                  description: Google Drive 
+                  type: string
+                  default: NotGoogleDrive
+                  required: true
+                - name: filename
+                  description: Name of BAM file
+                  type: string
+                  default: accepted_hits.bam
+                  required: true
+                - name: tissue
+                  description: Name of the tissue
+                  type: string
+                  default: aerial
+                  required: true
+                - name: record
+                  description: Sample
+                  type: string
+                  default: ERR274310
+                  required: true
+                - name: locus
+                  description: Locus (AGI ID)
+                  type: string
+                  default: AT1G01010
+                  required: true
+                - name: variant
+                  description: Protein Varian
+                  type: integer
+                  default: 1
+                  required: true
+                - name: start
+                  description: Start site
+                  type: integer
+                  default: 3631
+                  required: true
+                - name: end
+                  description: End site
+                  type: integer
+                  default: 5899
+                  required: true
+                - name: yscale
+                  description: Y axis scale
+                  type: integer
+                  default: -1
+                  required: true
+                - name: struct
+                  description: Gene Structure returned by gene structure web service
+                  type: JSON
+                  required: true
+                - name: dumpMethod
+                  description: Dump Method
+                  type: string
+                  default: simple
                   required: true
   
 sources:
